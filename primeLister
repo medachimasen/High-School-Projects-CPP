@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	char response;
+	cout << "This program is made to find all prime numbers through 3 and n." <<endl;
+	do
+	{
+		do
+		{
+			cout << "\n\nPlease enter an integer greater than 2: ";
+			cin >> n;
+		}
+		while (n < 3);
+		for(int i = 3; i <= n; i += 2)
+		{
+			bool prime = true;
+			for(int j = 3; j * j <= i && prime; j += 2)
+			{
+				prime = i % j;
+			}
+			if(prime)
+				cout << i << endl;
+		}
+		do
+		{
+			cout << "Would you like to insert another data set (y/n): ";
+			cin >> response;
+		}
+		while (response != 'y' && response != 'Y' && response != 'n' && response != 'N');
+	}
+	while (response == 'Y' || response == 'y');
+}
+
